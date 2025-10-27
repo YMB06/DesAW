@@ -6,8 +6,3 @@ services:
       container_name: ctportfolio
     ports:
       - "8010:80"
-    volumes:
-      - ./src:/var/www/html
-    environment:
-      - APACHE_RUN_USER=youssef
-      - APACHE_RUN_GROUP=youssef
