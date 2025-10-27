@@ -1,8 +1,8 @@
 services:
   web:
-    container_name: portfolio_web
-    build:
-      context: .
-      dockerfile: deploy/Dockerfile
+    build: #compilar la imagen a partir del Dockerfile
+      context: . #raiz del proyecto portfolio
+      dockerfile: Dockerfile
+    container_name: ctportfolioDAW
     ports:
-      - "8010:80"
+      - "8820:80"
