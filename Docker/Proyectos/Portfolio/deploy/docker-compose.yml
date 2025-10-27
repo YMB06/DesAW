@@ -3,6 +3,6 @@ services:
     container_name: portfolio_web
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: deploy/Dockerfile
     ports:
       - "8010:80"
