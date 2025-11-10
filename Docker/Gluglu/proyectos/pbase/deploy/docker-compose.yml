@@ -1,0 +1,4 @@
+services:
+  base:
+    build:
+      context: .. #raiz del proyecto portfolio
