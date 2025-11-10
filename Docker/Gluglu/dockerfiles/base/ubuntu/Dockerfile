@@ -15,7 +15,7 @@ RUN mkdir -p /root/base/ubuntu/admin
 #directorio actual dentro del contenedor
 WORKDIR /root/base/ubuntu/admin
 
-COPY ./admin .
+COPY ./dockerfiles/base/ubuntu/admin .
 RUN chmod o+x ./start.sh
 ENTRYPOINT ["./start.sh"]
 #CMD ["tail", "-f", "/dev/null"]
