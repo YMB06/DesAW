@@ -1,4 +1,8 @@
 services:
   base:
     build:
-      context: .. #raiz del proyecto portfolio
+      context: /root/DesAW/Docker/Gluglu #raiz del proyecto portfolio
+      dockerfile: ./dockerfiles/base/ubuntu/Dockerfile
+    container_name: ctbasepbase
+    ports:
+      - "8810:80"
