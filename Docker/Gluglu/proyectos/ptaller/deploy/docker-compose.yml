@@ -4,8 +4,11 @@ services:
       context: .. 
       dockerfile: ./deploy/Dockerfile
     container_name: ctptallerDAW
+    image: youssefmf/ubptaller
+    volumes:
+      - ./logs:/root/logs
     ports:
       - "8830:80"
-      
+
 
 
