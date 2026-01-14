@@ -1,0 +1,11 @@
+services:
+  webtaller:
+    build:
+      context: .. 
+      dockerfile: ./deploy/Dockerfile
+    container_name: ctptallerDAW
+    ports:
+      - "8830:80"
+      
+
+
