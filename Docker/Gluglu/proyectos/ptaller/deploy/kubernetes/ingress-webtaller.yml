@@ -3,8 +3,7 @@ kind: Ingress
 metadata:
   name: webtaller-ingress
   namespace: proyectotaller
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations: {}
 spec:
   rules:
     - host: webtaller.youssefmfitah.es
@@ -16,4 +15,4 @@ spec:
               service:
                 name: webtaller-service
                 port:
-                  number: 8830
+                  number: 80
