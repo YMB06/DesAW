@@ -16,4 +16,4 @@ spec:
               service:
                 name: webtaller-service
                 port:
-                  number: 8830
+                  number: 30080
