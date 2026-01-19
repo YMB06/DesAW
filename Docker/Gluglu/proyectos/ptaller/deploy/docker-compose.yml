@@ -3,7 +3,7 @@ services:
     build:
       context: .. 
       dockerfile: ./deploy/Dockerfile
-    container_name: ctptallerDAW
+    container_name: ptaller
     image: youssefmf/ubptaller
     volumes:
       - ./logs:/root/logs
