@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ptaller-deployment
+  labels:
+    app: ptaller
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ptaller
+  template:
+    metadata:
+      labels:
+        app: ptaller
+    spec:
+      containers:
+      - name: ptaller
+        image: youssefmf/ubptaller:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ptaller-service
+spec:
+  selector:
+    app: ptaller
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30830
+  type: NodePort
