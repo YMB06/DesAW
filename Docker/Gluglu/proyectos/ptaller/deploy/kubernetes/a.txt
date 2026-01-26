@@ -1,3 +1,5 @@
 kubectl describe ingress webtaller-ingress -n proyectotaller
 kubectl describe deployment webtaller-deployment -n proyectotaller
 kubectl describe svc webtaller-service -n proyectotaller
+kubectl describe pods webtaller-deployment -n proyectotaller
+kubectl rollout restart deployment/webtaller-deployment -n proyectotaller
