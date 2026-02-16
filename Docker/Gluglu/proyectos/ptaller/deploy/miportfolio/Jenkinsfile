@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout3') {
+            steps {
+                echo "Repo clonado  con exito"
+                sh 'ls -la'
+            }
+        }
+        stage('Info') {
+            steps {
+                sh 'git rev-parse --short HEAD'
+            }
+        }
+    }
+}
