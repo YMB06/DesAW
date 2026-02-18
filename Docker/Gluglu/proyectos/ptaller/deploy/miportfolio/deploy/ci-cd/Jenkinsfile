@@ -1,0 +1,53 @@
+pipeline {
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    command:
+    - sleep
+    args:
+    - 99d
+    volumeMounts:
+    - name: docker-config
+      mountPath: /kaniko/.docker
+  volumes:
+  - name: docker-config
+    secret:
+      secretName: dockerhub-secret
+"""
+        }
+    }
+
+    environment {
+        IMAGE = 'youssefmf/miportfolio:latest'
+    }
+
+    stages {
+        stage('checkout1') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build and push image') {
+            steps {
+                container('kaniko') {
+                    sh """
+                        /kaniko/executor \
+                            --context \$(pwd) \
+                            --dockerfile \$(pwd)/deploy/build_img/Dockerfile \
+                            --destination youssefmf/miportfolio:\${GIT_COMMIT} \
+                            --destination youssefmf/miportfolio:latest \
+                            --snapshot-mode=redo \
+                            --single-snapshot
+                    """
+                }
+            }
+        }
+    }
+}
